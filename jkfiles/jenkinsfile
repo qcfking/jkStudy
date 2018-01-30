@@ -1,4 +1,4 @@
-def props = readProperties file:'jkfiles/cfg.properties'
+def props = readProperties file:'/var/jenkins_home/workspace/pptest@script/jkfiles/cfg.properties'
 def Var1= props['name']
 def Var2= props['age']
 echo "Var1=${Var1}"
