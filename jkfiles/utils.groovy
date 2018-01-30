@@ -1,4 +1,4 @@
 def getCfg(id) {
-    return readProperties file:'./jkfiles/cfg.properties'
+    readProperties file:"jkfiles/cfg.properties"
 }
 this
