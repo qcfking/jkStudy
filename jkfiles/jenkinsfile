@@ -4,6 +4,6 @@ node {
     stage('loadCfg'){
         utils = load "./jkfiles/utils.groovy"
         cfg = utils.getCfg
-        echo "${cfg['name']}"
+        echo "${cfg["name"]}"
     }
 }
