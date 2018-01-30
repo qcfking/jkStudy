@@ -1,14 +1,33 @@
-def utils
-def cfg
 pipeline {
     agent any
-    stages{
-        stage('loadCfg'){
-                utils = load "./jkfiles/utils.groovy"
-                cfg = utils.cfg
-                echo "${cfg['name']}"
-                def a = cfg['name']
-                echo "${a} .... jenkinsfile"
+    environment { 
+        def conf = readProperties file:"jkfiles/cfg.properties"
+    }
+    stages {    
+        stage('代码拉取'){
+            steps {
+                echo "检查${DESTPATH}目录是否存在"
             }
+        }
+        stage('目录检查') {
+            steps {
+                echo "检查${DESTPATH}目录是否存在"
+            }
+        }       
+        stage('服务检查') {
+            steps {
+                echo "检查nginx进程是否存在"
+            }
+        }
+        stage('发布确认') {
+            steps {
+                echo "检查完成，是否发布?"
+            }
+        }                   
+        stage('代码推送') {
+            steps {
+                echo "code sync"
+            }
+        }
     }
 }
