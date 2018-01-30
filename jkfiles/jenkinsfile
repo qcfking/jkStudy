@@ -1,8 +1,9 @@
 pipeline {
     agent any
-    environment { 
-        def conf = readProperties file:"jkfiles/cfg.properties"
-    }
+    def conf = readProperties file:"jkfiles/cfg.properties"
+    def a = cfg['name']
+    echo "${a}"
+    ${conf.name}
     stages {    
         stage('代码拉取'){
             steps {
