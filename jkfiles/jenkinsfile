@@ -3,7 +3,7 @@ def cfg
 node {
     stage('loadCfg'){
         utils = load "./jkfiles/utils.groovy"
-        cfg =  = utils.getCfg
+        cfg = utils.getCfg
         echo "${cfg}"
     }
 }
