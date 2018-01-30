@@ -3,7 +3,9 @@ def cfg
 node {
     stage('loadCfg'){
         utils = load "./jkfiles/utils.groovy"
-        cfg = utils.getCfg
-        echo "${cfg["name"]}"
+        cfg = utils.cfg
+        echo "${cfg['name']}"
+        def a = cfg['name']
+        echo "${a} .... jenkinsfile"
     }
 }
