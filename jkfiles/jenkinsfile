@@ -1,12 +1,11 @@
 
 pipeline {
     agent any
+    def rootDir = pwd()
+    def conf = load "${rootDir}@script/utils.Groovy"
     stages {
         stage('设置变量'){
             steps{
-                def conf = readProperties file:"jkfiles/cfg.properties"
-                def a = conf['name']
-                echo "${a}"
                 echo "${conf.name}"
             }
         }
