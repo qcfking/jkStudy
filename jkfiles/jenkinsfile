@@ -1,4 +1,7 @@
-def props = readProperties  file: 'jkfiles/cfg.properties'
+def files = findFiles(glob: '**/cfg.properties') 
+echo """${files[0].name} ${files[0].path} ${files[0].directory} ${files[0].length} ${files[0].lastModified}"""
+
+def props = readProperties file: 'jkfiles/cfg.properties'
 def Var1= props['name']
 def Var2= props['age']
 echo "Var1=${Var1}"
