@@ -6,7 +6,7 @@ pipeline {
         stage('设置变量'){
             steps{
                 conf = readProperties file:"jkfiles/cfg.properties"
-                a = cfg['name']
+                a = conf['name']
                 echo "${a}"
                 echo "${conf.name}"
             }
