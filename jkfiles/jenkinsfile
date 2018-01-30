@@ -1,33 +1,5 @@
-node {
-    stage('Start Service') {
-        parallel 'test': {
-            echo 'test'
-        }, 'deply': {
-            echo 'deply'
-        }
-    }
-
-    parallel 'one' : {
-        stage('one') {
-            echo 'one'
-        }
-    }, 'two' : {
-        stage('two') {
-            echo 'two'
-        }
-    }
-}
-
-parallel 'one': {
-    node{
-        stage('one') {
-            echo 'one'
-        }
-    }
-}, 'two': {
-    node {
-        stage('two') {
-            echo 'two'
-        }
-    }
-}
+def props = readProperties  file: 'jkfiles/cfg.properties'
+def Var1= props['name']
+def Var2= props['age']
+echo "Var1=${Var1}"
+echo "Var2=${Var2}"
