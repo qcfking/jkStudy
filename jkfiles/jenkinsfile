@@ -1,7 +1,6 @@
 def utils = load "./jkfiles/utils.groovy"
-def cfg = utils.getCfg
+def cfg = utils.getCfg()
 stage 'Dev'
     node {
-        def a = cfg["name"]
-        echo "${a}"
+        echo "${cfg['name']}"
     }
