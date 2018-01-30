@@ -1,13 +1,16 @@
 def conf
 def a
-conf = readProperties file:"jkfiles/cfg.properties"
-a = cfg['name']
-echo "${a}"
-echo "${conf.name}"
-
 pipeline {
     agent any
-    stages {    
+    stages {
+        stage('设置变量'){
+            steps{
+                conf = readProperties file:"jkfiles/cfg.properties"
+                a = cfg['name']
+                echo "${a}"
+                echo "${conf.name}"
+            }
+        }
         stage('代码拉取'){
             steps {
                 echo "检查${conf.name}目录是否存在"
