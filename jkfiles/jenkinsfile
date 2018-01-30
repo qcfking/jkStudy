@@ -1,15 +1,15 @@
 
 node {
     def rootDir = pwd()
-    def conf = load "${rootDir}@script/jkfiles/utils.groovy"
+    def conf = readProperties file:"${rootDir}@script/jkfiles/cfg.properties"
     stage('设置变量'){
-        echo "${conf.name}"
+        echo "${conf['name']}"
     }
     stage('代码拉取'){
-        echo "检查${conf.name}目录是否存在"
+        echo "检查${conf['name']}目录是否存在"
     }
     stage('目录检查') {
-        echo "检查${conf.name}目录是否存在"
+        echo "检查${conf['name']}目录是否存在"
     }       
     stage('服务检查') {
         echo "检查nginx进程是否存在"
