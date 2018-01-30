@@ -1,12 +1,11 @@
-def conf
-def a
+
 pipeline {
     agent any
     stages {
         stage('设置变量'){
             steps{
-                conf = readProperties file:"jkfiles/cfg.properties"
-                a = conf['name']
+                def conf = readProperties file:"jkfiles/cfg.properties"
+                def a = conf['name']
                 echo "${a}"
                 echo "${conf.name}"
             }
