@@ -1,7 +1,6 @@
-def cfg = readProperties file:'./jkfiles/cfg.properties'
+def cfg
 stage 'Dev'
     node {
-        checkout scm
-        cfg = load 'jkfiles/getCfg.groovy'
+        cfg = readProperties file: 'jkfiles/getCfg.groovy'
         echo cfg['name']
     }
