@@ -1,5 +1,7 @@
-def props = readProperties file:'/var/jenkins_home/workspace/pptest@script/jkfiles/cfg.properties'
-def Var1= props['name']
-def Var2= props['age']
-echo "Var1=${Var1}"
-echo "Var2=${Var2}"
+def cfg
+stage 'Dev'
+    node {
+        checkout scm
+        cfg = load 'jkfiles/getCfg.groovy'
+        echo cfg.props['name']
+    }
