@@ -1,2 +1,3 @@
-def conf = readProperties file:"jkfiles/cfg.properties"
+def rootDir = pwd()
+def conf = readProperties file:"${rootDir}@script/jkfiles/cfg.properties"
 this
