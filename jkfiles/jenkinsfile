@@ -1,20 +1,33 @@
 node {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
+    stage('Start Service') {
+        parallel 'test': {
+            echo 'test'
+        }, 'deply': {
+            echo 'deply'
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
+    }
+
+    parallel 'one' : {
+        stage('one') {
+            echo 'one'
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
+    }, 'two' : {
+        stage('two') {
+            echo 'two'
+        }
+    }
+}
+
+parallel 'one': {
+    node{
+        stage('one') {
+            echo 'one'
+        }
+    }
+}, 'two': {
+    node {
+        stage('two') {
+            echo 'two'
         }
     }
 }
