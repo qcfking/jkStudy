@@ -1,6 +1,9 @@
-def utils = load "./jkfiles/utils.groovy"
-def cfg = utils.getCfg()
-stage 'Dev'
-    node {
-        echo "${cfg['name']}"
+def utils
+def cfg
+node {
+    stage('loadCfg'){
+        utils = load "./jkfiles/utils.groovy"
+        cfg =  = utils.getCfg
+        echo "${cfg}"
     }
+}
