@@ -2,5 +2,6 @@ def cfg
 stage 'Dev'
     node {
         cfg = readProperties file: 'jkfiles/getCfg.groovy'
-        echo cfg['name']
+        def Var1 = props['name']
+        echo '${Var1}'
     }
