@@ -1,4 +1,5 @@
 def getCfg(id) {
-    readProperties file:"jkfiles/cfg.properties"
+    def cfg=readProperties file:"jkfiles/cfg.properties"
+    cfg;
 }
 this
