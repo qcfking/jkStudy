@@ -1,11 +1,14 @@
 def utils
 def cfg
-Pipeline {
-    stage('loadCfg'){
-        utils = load "./jkfiles/utils.groovy"
-        cfg = utils.cfg
-        echo "${cfg['name']}"
-        def a = cfg['name']
-        echo "${a} .... jenkinsfile"
+pipeline {
+    agent any
+    stages{
+        stage('loadCfg'){
+                utils = load "./jkfiles/utils.groovy"
+                cfg = utils.cfg
+                echo "${cfg['name']}"
+                def a = cfg['name']
+                echo "${a} .... jenkinsfile"
+            }
     }
 }
