@@ -1,6 +1,6 @@
 def utils
 def cfg
-node {
+Pipeline {
     stage('loadCfg'){
         utils = load "./jkfiles/utils.groovy"
         cfg = utils.cfg
