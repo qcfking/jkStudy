@@ -1,7 +1,7 @@
 
 node {
     def rootDir = pwd()
-    def conf = load "${rootDir}@script/jkfiles/utils.Groovy"
+    def conf = load "${rootDir}@script/jkfiles/utils.groovy"
     stages {
         stage('设置变量'){
             steps{
